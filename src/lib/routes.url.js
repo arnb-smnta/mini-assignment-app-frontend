@@ -3,12 +3,7 @@ export const routes = {
   LOGIN_URL: "/login",
   REGISTER_URL: "/register",
   USER_PROFILE_URL: "/userprofile",
-  APPLY_FOR_LOAN: "/applyforloan",
-  VIEW_LOAN: "/viewloan/:loanId",
-  VIEWREPAYMENT: "/repayment/:repaymentId",
-  ABOUT_URL: "/about",
-  PENDINGLOANS: "/loans/pendingloans",
-  VIEWLOANBYUSER: "/viewloanbyuser",
+
   CREATEPROJECT: "/createproject",
   VIEWPROJECT: "/viewproject/:projectId",
   VIEWTASK: "/viewtask/:taskId",
