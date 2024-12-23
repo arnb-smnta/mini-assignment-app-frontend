@@ -4,7 +4,7 @@ A comprehensive full-stack application designed to streamline assignment and tas
 
 ---
 
--[Video-of-app]https://drive.google.com/file/d/1kCaHm6AImRKzBsmSW1GSEdwhpXIXIhx9/view?usp=drive_link
+-**Live Video**[Video-of-app](https://drive.google.com/file/d/1kCaHm6AImRKzBsmSW1GSEdwhpXIXIhx9/view?usp=drive_link)
 
 - **Live Demo:** [Mini-Assignment Tracker](https://assingment-app-lonots.netlify.app/)
 
