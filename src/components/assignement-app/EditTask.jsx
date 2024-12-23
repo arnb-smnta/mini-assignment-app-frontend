@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { updateTask, getTask } from "@/api"; // Ensure you import updateTask and getTask functions
+import { updateTask, getTask } from "@/api";
 import { useToast } from "@/hooks/use-toast";
 import React from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { FaEdit } from "react-icons/fa"; // Icon for edit
+import { FaEdit } from "react-icons/fa";
 import { requestHandler } from "@/lib/helpers";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../Loader";
@@ -17,10 +17,10 @@ const EditTask = () => {
     name: "",
     description: "",
   });
-  const [loading, setLoading] = useState(true); // Loading state for fetching task data
-  const [updating, setUpdating] = useState(false); // Loading state for updating task
+  const [loading, setLoading] = useState(true);
+  const [updating, setUpdating] = useState(false);
 
-  // Fetch the existing task data when the component mounts
+  // Fetch the existing task data when the component mounts for putiing in input boxes
   useEffect(() => {
     requestHandler(
       async () => await getTask(taskId),

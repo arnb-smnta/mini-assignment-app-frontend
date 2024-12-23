@@ -80,7 +80,7 @@ const NewProject = () => {
             onChange={handleDataChange("description")}
             onKeyDown={handleKeyDown}
           />
-          {/* Button to initiate the project creation process */}
+          {/* Button to initiate the project creation process  disabled if old parameter remains same*/}
           <Button
             disabled={Object.values(data).some((val) => !val)}
             fullWidth

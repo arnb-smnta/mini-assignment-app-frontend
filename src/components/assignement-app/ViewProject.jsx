@@ -2,29 +2,27 @@ import {
   getproject,
   deleteProject,
   getallUser,
-  updateProject,
   assignProjectToUser,
-} from "@/api"; // Ensure getallUser and updateProject are imported
+} from "@/api";
 import { toast } from "@/hooks/use-toast";
 import { LocalStorage, requestHandler } from "@/lib/helpers";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import DatePicker from "react-datepicker"; // Assuming you're using a library for date picking
-import "react-datepicker/dist/react-datepicker.css"; // Import styles for the date picker
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const ViewProject = () => {
   const { projectId } = useParams();
   const navigate = useNavigate();
   const [projectData, setProjectsData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [assignedUser, setAssignedUser] = useState(""); // State for assigned user
-  const [users, setUsers] = useState([]); // State for user list
-  const [startDate, setStartDate] = useState(null); // State for start date
-  const [endDate, setEndDate] = useState(null); // State for end date
+  const [assignedUser, setAssignedUser] = useState("");
+  const [users, setUsers] = useState([]);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const userRole = LocalStorage.get("role");
   const userId = LocalStorage.get("user")._id;
 
-  // Fetch project details
   useEffect(() => {
     requestHandler(
       async () => await getproject(projectId),
@@ -43,7 +41,6 @@ const ViewProject = () => {
     );
   }, [projectId]);
 
-  // Fetch users when the dropdown is clicked
   const fetchUsers = async () => {
     requestHandler(
       async () => await getallUser(),
@@ -62,12 +59,10 @@ const ViewProject = () => {
     );
   };
 
-  // Handle user selection
   const handleUserChange = (e) => {
     setAssignedUser(e.target.value);
   };
 
-  // Handle assigning user to project with dates
   const handleAssignUser = async () => {
     if (!assignedUser || !startDate || !endDate) {
       toast({
@@ -124,7 +119,6 @@ const ViewProject = () => {
 
   const progressPercentage = ((userScore / totalScore) * 100).toFixed(2);
 
-  // Handle delete project
   const handleDeleteProject = async () => {
     if (window.confirm("Are you sure you want to delete this project?")) {
       requestHandler(

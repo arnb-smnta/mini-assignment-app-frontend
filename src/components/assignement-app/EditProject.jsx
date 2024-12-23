@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { updateProject, getproject } from "@/api"; // Ensure you import updateProject and getProject functions
+import { updateProject, getproject } from "@/api";
 import { useToast } from "@/hooks/use-toast";
 import React from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { FaEdit } from "react-icons/fa"; // Icon for edit
+import { FaEdit } from "react-icons/fa";
 import { requestHandler } from "@/lib/helpers";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../Loader";
@@ -18,10 +18,10 @@ const EditProject = () => {
     description: "",
     totalScore: "",
   });
-  const [loading, setLoading] = useState(true); // Loading state for fetching project data
-  const [updating, setUpdating] = useState(false); // Loading state for updating project
+  const [loading, setLoading] = useState(true);
+  const [updating, setUpdating] = useState(false);
 
-  // Fetch the existing project data when the component mounts
+  // Fetch the existing project data when the component mounts for showing in input forms
   useEffect(() => {
     requestHandler(
       async () => await getproject(projectId),
@@ -44,7 +44,7 @@ const EditProject = () => {
   };
 
   const handleUpdateProject = async () => {
-    // Validate that all fields are filled
+    // Validate that all fields are filled for submisson
     if (Object.values(data).some((val) => !val)) {
       toast({
         variant: "destructive",
@@ -60,7 +60,7 @@ const EditProject = () => {
         toast({
           title: "Project updated successfully!",
         });
-        navigate(`/dashboard/viewproject/${projectId}`); // Navigate to the project view
+        navigate(`/dashboard/viewproject/${projectId}`); // Navigate to the project view on success
       },
       (err) => {
         console.log(err);
@@ -117,7 +117,7 @@ const EditProject = () => {
           onChange={handleDataChange("totalScore")}
           onKeyDown={handleKeyDown}
         />
-        {/* Button to initiate the project update process */}
+        {/* Button to initiate the project update process and check if the value is changed or not*/}
         <Button
           disabled={Object.values(data).some((val) => !val)}
           fullWidth

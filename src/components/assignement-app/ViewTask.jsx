@@ -1,4 +1,4 @@
-import { getTask, updateProgressStatus, deleteTask } from "@/api"; // Ensure `deleteTask` is imported
+import { getTask, updateProgressStatus, deleteTask } from "@/api";
 import { toast } from "@/hooks/use-toast";
 import { LocalStorage, requestHandler } from "@/lib/helpers";
 import React, { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ export const TaskEnumStatus = {
 
 const ViewTask = () => {
   const { taskId } = useParams();
-  const navigate = useNavigate(); // Use for navigation
+  const navigate = useNavigate();
   const [taskData, setTaskData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedStatus, setSelectedStatus] = useState(null);
@@ -24,7 +24,7 @@ const ViewTask = () => {
       (res) => {
         console.log(res.data);
         setTaskData(res.data);
-        setSelectedStatus(res.data?.userProgress?.status); // Set initial status for the dropdown
+        setSelectedStatus(res.data?.userProgress?.status);
         toast({ title: "Task loaded successfully!" });
       },
       (err) => {
@@ -53,7 +53,6 @@ const ViewTask = () => {
 
   const { task, userProgress } = taskData;
 
-  // Handler functions
   const handleEditTask = () => {
     navigate(`/dashboard/edittask/${taskId}`);
   };
